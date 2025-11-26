@@ -4,6 +4,28 @@ import { useRoadmap } from "../RoadmapContext";
 import TopicCard from "./TopicCard";
 import ProgressSidebar from "./ProgressSidebar";
 
+const EXAMPLE_JSON = `[
+  {
+    "id": "js-basics",
+    "title": "JavaScript Basics",
+    "shortDescription": "Переменные, типы, условия, циклы",
+    "description": "Подробное описание темы, какие разделы пройти, какие ресурсы использовать и т.д.",
+    "status": "not_started",
+    "notes": "",
+    "targetDate": ""
+  },
+  {
+    "id": "react-core",
+    "title": "React Core",
+    "shortDescription": "Компоненты, props, state, эффекты",
+    "description": "Описание того, что нужно изучить по React: компоненты, хуки, управление состоянием.",
+    "status": "in_progress",
+    "notes": "Например: пересмотреть урок по useEffect",
+    "targetDate": "2025-12-31"
+  }
+]`;
+
+
 function RoadmapLayout() {
   const {
     topics,
@@ -49,9 +71,15 @@ function RoadmapLayout() {
     toggleOverview();
   };
 
-  const handleFileSelectClick = () => {
-    if (fileInputRef.current) fileInputRef.current.click();
-  };
+const handleFileSelectClick = () => {
+  alert(
+    "Пример JSON файла для импорта:\n\n" +
+      EXAMPLE_JSON +
+      "\n\nСкопируйте это в .json файл, измените под себя и загрузите."
+  );
+
+  if (fileInputRef.current) fileInputRef.current.click();
+};
 
   const handleFileChange = (e) => {
     const file = e.target.files?.[0];
