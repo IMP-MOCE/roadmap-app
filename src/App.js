@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import RoadmapLayout from "./components/RoadmapLayout";
+import TopicDetail from "./components/TopicDetail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<RoadmapLayout />}>
+        <Route index element={<Navigate to="/topic/0" replace />} />
+        <Route path="topic/:index" element={<RoadmapLayout />} />
+      </Route>
+      
+      <Route path="/details/:id" element={<TopicDetail />} />
+
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }
 

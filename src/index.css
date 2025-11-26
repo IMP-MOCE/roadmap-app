@@ -1,13 +1,599 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #000;
+  color: #f5f5f5;
+  overflow: hidden;
+}
+
+.app-root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Верхняя панель */
+
+.top-bar {
+  height: 56px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #050505, #111);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 10;
+}
+
+.app-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fdfdfd;
+}
+
+.top-bar-right {
+  display: flex;
+  gap: 8px;
+}
+
+.top-btn {
+  background: transparent;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  color: #f5f5f5;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.top-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Основное содержимое */
+
+.app-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.corridor {
+  flex: 1;
+  position: relative;
+  background: linear-gradient(to bottom, #020202 0%, #000 40%, #000 100%);
+  overflow: hidden;
+}
+
+/* Правая колонка */
+
+.sidebar {
+  width: 260px;
+  background: linear-gradient(to bottom, #050505, #111);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 12px 10px;
+  display: flex;
+}
+
+/* Область карты */
+
+.card-wrapper {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -55%) rotateX(18deg);
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+
+/* Анимация приближения карточки */
+.card-enter {
+  animation: cardApproach 0.8s ease-out;
+  transform-origin: center;
+}
+
+@keyframes cardApproach {
+  from {
+    transform: translateZ(-600px) scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: translateZ(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Карточка темы */
+
+.topic-card-container {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.topic-card-container.full {
+  width: 420px;
+  max-width: 86vw;
+}
+
+.topic-card-container.compact {
+  width: 260px;
+}
+
+/* Карточка */
+.topic-card {
+  position: relative;
+  width: 100%;
+  background: rgba(5, 5, 5, 0.98);
+  border-radius: 18px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.topic-card-container.compact .topic-card {
+  padding: 12px 14px;
+  border-radius: 16px;
+}
+
+/* Свечение обводки по статусу */
+
+.topic-card.status-not-started {
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.34),
+    0 0 60px rgba(255, 255, 255, 0.04);
+}
+
+.topic-card.status-in-progress {
+  border: 1.5px solid rgba(255, 230, 150, 0.8);
+  box-shadow:
+    0 0 18px rgba(255, 230, 150, 0.5),
+    0 0 60px rgba(255, 230, 150, 0.07);
+}
+
+.topic-card.status-done {
+  border: 1.5px solid rgba(120, 255, 150, 0.9);
+  box-shadow:
+    0 0 18px rgba(120, 255, 150, 0.6),
+    0 0 60px rgba(120, 255, 150, 0.12);
+}
+
+.topic-card-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Основная карточка */
+.topic-card-main {
+  z-index: 2;
+}
+
+/* Отражение */
+.topic-card-reflection {
+  position: absolute;
+  top: 190%;
+  left: 0;
+  right: 0;
+  transform-origin: top;
+  transform: translateY(10px) scaleY(-1);
+  opacity: 0.55;
+  filter: blur(2px);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.corridor.overview-mode .topic-card-reflection {
+  height: 140px;
+  transform: translateY(6px) scaleY(-1);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.topic-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.topic-index {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.topic-title {
+  font-size: 20px;
+  margin: 4px 0 6px;
+}
+
+.topic-short {
+  font-size: 14px;
+  color: rgba(240, 240, 240, 0.9);
+}
+
+/* Кнопка статуса */
+
+.status-toggle {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 4px 10px;
+  font-size: 11px;
+  color: #f5f5f5;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.status-toggle.large {
+  font-size: 12px;
+  padding: 6px 14px;
+}
+
+.status-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Навигационные кнопки */
+
+.nav-buttons {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 3;
+}
+
+.nav-btn {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 8px 18px;
+  color: #f5f5f5;
+  cursor: pointer;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Режим обзора */
+
+.overview-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transform-style: preserve-3d;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
+/* скролл */
+.overview-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.overview-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+}
+
+.overview-cards {
+  position: relative;
+  display: flex;
+  gap: 32px;
+  transform-origin: left center;
+  transform: rotateX(30deg) translateY(10px) translateZ(160px) scale(0.85);
+  transform-style: preserve-3d;
+  width: max-content;
+  padding-right: 60px;
+  margin-left: 60px;
+}
+
+.corridor.overview-mode .topic-card-container.full {
+  width: 280px;
+}
+
+.corridor.overview-mode .topic-card-container.compact {
+  width: 220px;
+}
+
+.overview-card-wrapper {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.overview-card-wrapper:hover {
+  transform: translateY(-8px) translateZ(30px) scale(1.05);
+}
+
+/* Детальная страница */
+
+.details-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 4;
+}
+
+.details-card {
+  width: 640px;
+  max-width: 100%;
+  max-height: 100%;
+  background: rgba(5, 5, 5, 0.96);
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow:
+    0 0 25px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(255, 255, 255, 0.12);
+  overflow-y: auto;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.details-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.details-description {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  color: rgba(240, 240, 240, 0.95);
+}
+
+.notes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* стили заметок и даты */
+.notes-section label,
+.target-date-section label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.notes-section textarea {
+  resize: vertical;
+  min-height: 160px;
+  background: #040404;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  color: #f5f5f5;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* Общие кнопки */
+
+.primary-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 14px;
+  color: #f5f5f5;
+  cursor: pointer;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.primary-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.back-btn {
+  margin-bottom: 10px;
+}
+
+/* Прогресс-бар и список */
+
+.progress-sidebar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #f5f5f5;
+}
+
+.progress-sidebar h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.progress-bar-vertical {
+  width: 18px;
+  height: 160px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.85);
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, #7bff98, #fffbd2);
+  transition: height 0.2s ease-out;
+}
+
+.progress-info {
+  font-size: 13px;
+}
+
+.progress-percent {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.progress-fraction {
+  font-size: 13px;
+  color: rgba(240, 240, 240, 0.85);
+}
+
+/* Список тем и их статусов */
+
+.progress-list {
+  margin-top: 6px;
+  overflow-y: auto;
+  max-height: calc(100vh - 130px);
+  padding-right: 4px;
+}
+
+.progress-list-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  padding: 3px 0;
+}
+
+.progress-list-index {
+  opacity: 0.7;
+  width: 20px;
+  text-align: right;
+}
+
+.progress-list-status {
+  font-size: 9px;
+}
+
+/* точки статуса */
+
+.progress-list-status.status-not_started {
+  color: #ffffff;
+}
+
+.progress-list-status.status-in_progress {
+  color: #ffe86c;
+}
+
+.progress-list-status.status-done {
+  color: #79ff96;
+}
+
+.progress-list-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Дата */
+
+.target-date-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.target-date-section input[type="date"] {
+  background: #040404;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 10px;
+  color: #f5f5f5;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* прогресс-бар снизу */
+
+@media (max-width: 900px) {
+  .app-content {
+    flex-direction: column;
+  }
+
+  .corridor {
+    flex: none;
+    height: calc(100vh - 56px - 190px);
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 190px;
+    padding: 8px 12px;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .progress-sidebar {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .progress-bar-vertical {
+    height: 90px;
+    margin-bottom: 0;
+  }
+
+  .progress-info {
+    min-width: 90px;
+  }
+
+  .progress-list {
+    max-height: 140px;
+  }
 }

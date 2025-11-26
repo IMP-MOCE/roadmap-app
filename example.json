@@ -1,0 +1,322 @@
+[
+  {
+    "id": "topic-01-html-basics",
+    "title": "Основы HTML",
+    "shortDescription": "Теги, структура документа, атрибуты",
+    "description": "Изучение базовых тегов HTML (html, head, body, h1–h6, p, a, img, div, span), атрибутов и общей структуры документа. Понимание семантической разметки и того, как браузер интерпретирует HTML.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-02-html-semantic",
+    "title": "Семантический HTML",
+    "shortDescription": "header, main, section, article и др.",
+    "description": "Разбор семантических тегов HTML5: header, footer, main, section, article, nav, aside. Понимание, как семантика помогает SEO, доступности и поддерживаемости кода.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-03-css-basics",
+    "title": "Основы CSS",
+    "shortDescription": "Селекторы, каскад, наследование",
+    "description": "Изучение базовых селекторов, приоритетов стилей, каскада и наследования. Подключение CSS к странице, работа с цветами, шрифтами и базовой типографикой.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-04-css-layouts",
+    "title": "Макеты на Flexbox",
+    "shortDescription": "Flex-контейнеры и элементы",
+    "description": "Создание адаптивных макетов с помощью Flexbox: оси, выравнивание, распределение пространства, порядок элементов, практические упражнения по верстке блоков и простых интерфейсов.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-05-css-grid",
+    "title": "Макеты на CSS Grid",
+    "shortDescription": "Двумерные сетки для сложных интерфейсов",
+    "description": "Изучение CSS Grid для построения сложных двухмерных сеток. Области, линии, шаблоны строк и колонок. Практика: сетки для dashboard и страниц с комплексными раскладками.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-06-responsive-design",
+    "title": "Адаптивная верстка",
+    "shortDescription": "Media-запросы, mobile first",
+    "description": "Подход mobile-first, использование media-запросов, относительных единиц (%, rem, vw, vh), резиновые и адаптивные макеты, проверка и отладка на разных устройствах.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-07-js-syntax",
+    "title": "Синтаксис JavaScript",
+    "shortDescription": "Переменные, типы, операторы",
+    "description": "Изучение базового синтаксиса JS: let/const, примитивные и ссылочные типы, операторы, базовые конструкции кода. Понимание отличий между == и ===, работа с консолью.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-08-js-control-flow",
+    "title": "Управление потоком",
+    "shortDescription": "if, switch, циклы for/while",
+    "description": "Условные операторы, циклы, перебор массивов и объектов. Практика написания небольших алгоритмов и мини-задач для закрепления базовых конструкций.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-09-js-functions",
+    "title": "Функции в JavaScript",
+    "shortDescription": "Объявление, стрелочные функции, замыкания",
+    "description": "Разные способы объявления функций, стрелочные функции, область видимости, контекст, замыкания. Практика написания чистых и переиспользуемых функций.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-10-js-async",
+    "title": "Асинхронность и Promises",
+    "shortDescription": "Promise, async/await, setTimeout",
+    "description": "Понимание асинхронности в JS, цикл событий, работа с промисами, async/await, обработка ошибок. Практика запросов к API с fetch.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-11-dom-basics",
+    "title": "DOM и работа с элементами",
+    "shortDescription": "querySelector, события, изменение стиля",
+    "description": "Получение элементов из DOM, изменение их содержимого и стилей, реакция на события (click, input и др.), делегирование событий. Понимание того, что делает React под капотом.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-12-build-tools",
+    "title": "Инструменты сборки",
+    "shortDescription": "npm, скрипты, основы Webpack/Vite",
+    "description": "Работа с npm/yarn, запуск скриптов, базовое понимание бандлеров (Webpack, Vite), транспиляция и бандлинг кода, dev/production режимы.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-13-react-intro",
+    "title": "Введение в React",
+    "shortDescription": "JSX, компоненты, props",
+    "description": "Понимание философии React, создание функциональных компонентов, использование JSX, передача данных через props, однонаправленный поток данных.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-14-react-state",
+    "title": "Состояние компонентов",
+    "shortDescription": "useState, управление локальным состоянием",
+    "description": "Использование хука useState, обновление состояния, работа с формами и контролируемыми компонентами. Разбор типичных ошибок при работе со state.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-15-react-effects",
+    "title": "Побочные эффекты",
+    "shortDescription": "useEffect, запросы к API",
+    "description": "Хук useEffect, зависимости, очистка эффектов, запросы к API внутри эффектов, разделение логики по разным эффектам. Предотвращение бесконечных циклов рендеринга.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-16-react-router-basics",
+    "title": "React Router: основы",
+    "shortDescription": "Маршруты, ссылки, параметры",
+    "description": "Настройка BrowserRouter, Route, Link, навигация между страницами, чтение параметров URL. Понимание концепции SPA и клиентской маршрутизации.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-17-react-router-advanced",
+    "title": "React Router: продвинутые возможности",
+    "shortDescription": "Вложенные маршруты, guard-ы",
+    "description": "Вложенные маршруты, динамические сегменты, навигация программно, защищённые маршруты, работа с состоянием при навигации.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-18-react-context",
+    "title": "Контекст в React",
+    "shortDescription": "Context API, глобальное состояние",
+    "description": "Создание и использование Context для передачи данных через дерево компонентов без проп-дриллинга. Паттерны и ограничения Context API.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-19-react-forms",
+    "title": "Формы в React",
+    "shortDescription": "Контролируемые и неконтролируемые компоненты",
+    "description": "Работа с формами, обработка ввода, валидация, библиотека React Hook Form (или аналог). Обработка ошибок и UX форм.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-20-react-performance",
+    "title": "Оптимизация производительности",
+    "shortDescription": "memo, useMemo, useCallback",
+    "description": "Избегание лишних рендеров, мемоизация компонентов и вычислений, профилирование. Понимание, когда оптимизация действительно нужна.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-21-state-management",
+    "title": "Управление состоянием приложения",
+    "shortDescription": "Redux/Zustand/Recoil (по выбору)",
+    "description": "Выбор и изучение библиотеки для глобального состояния: Redux Toolkit, Zustand, Recoil или другая. Организация хранилища, actions, selectors, архитектура приложения.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-22-api-integration",
+    "title": "Работа с API",
+    "shortDescription": "REST, обработка ошибок, загрузка данных",
+    "description": "Запросы к REST API, обработка состояний загрузки/ошибки, отображение скелетонов, пагинация, фильтрация и сортировка данных на стороне клиента.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-23-auth-basics",
+    "title": "Аутентификация на фронтенде",
+    "shortDescription": "JWT, хранение токенов, защищённые маршруты",
+    "description": "Основы аутентификации: JWT, хранение токенов (localStorage, cookies), защита маршрутов, обновление токена, работа с профилем пользователя.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-24-ui-libraries",
+    "title": "UI-библиотеки",
+    "shortDescription": "MUI, Ant Design, Headless UI и др.",
+    "description": "Использование UI-библиотек для ускорения разработки: компоненты, темы, кастомизация стилей. Понимание trade-off'ов между кастомной версткой и готовыми решениями.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-25-css-methodologies",
+    "title": "Методологии CSS",
+    "shortDescription": "BEM, CSS Modules, CSS-in-JS",
+    "description": "Организация CSS на больших проектах: BEM, модули, styled-components, Emotion или другие решения. Плюсы и минусы подходов, выбор стратегии для проекта.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-26-design-systems",
+    "title": "Дизайн-системы и гайдлайны",
+    "shortDescription": "Единый стиль, компоненты, токены",
+    "description": "Основы дизайн-систем: типографика, цвета, отступы, компоненты. Создание и поддержка единого визуального языка в приложении.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-27-testing-basics",
+    "title": "Тестирование фронтенда",
+    "shortDescription": "Jest, React Testing Library",
+    "description": "Понимание целей тестирования, юнит- и компонентные тесты, snapshot-тесты. Практика написания тестов для React-компонентов с помощью React Testing Library и Jest.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-28-e2e-testing",
+    "title": "E2E-тестирование",
+    "shortDescription": "Cypress/Playwright",
+    "description": "Написание end-to-end тестов, имитация поведения пользователя, проверка критических сценариев. Запуск тестов локально и в CI.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-29-accessibility",
+    "title": "Доступность (a11y)",
+    "shortDescription": "ARIA, навигация с клавиатуры",
+    "description": "Основы доступности: семантика, правильные атрибуты, фокус, работа с экранными читателями. Проверка доступности с помощью DevTools и специализированных инструментов.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-30-seo-spa",
+    "title": "SEO для SPA",
+    "shortDescription": "Метаданные, SSR, пререндеринг",
+    "description": "Понимание ограничений SPA по SEO, использование метаданных, серверный рендеринг (Next.js) или пререндеринг, оптимизация скорости загрузки для поисковых систем.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-31-performance-web",
+    "title": "Web-производительность",
+    "shortDescription": "Lighthouse, оптимизация бандла",
+    "description": "Анализ производительности с Lighthouse и DevTools, уменьшение размера бандла, code splitting, lazy loading, оптимизация изображений и шрифтов.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-32-security-basics",
+    "title": "Безопасность фронтенда",
+    "shortDescription": "XSS, CSRF, безопасная работа с данными",
+    "description": "Основы безопасности: защита от XSS, CSRF, правильная обработка пользовательского ввода, безопасное хранение чувствительных данных на клиенте.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-33-git-basics",
+    "title": "Основы Git",
+    "shortDescription": "Коммиты, ветки, merge",
+    "description": "Базовые команды Git, создание и переключение веток, слияние, разрешение конфликтов, работа с удалёнными репозиториями (GitHub, GitLab, Bitbucket).",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-34-git-workflow",
+    "title": "Рабочий процесс с Git",
+    "shortDescription": "GitFlow, Code Review, Pull Request",
+    "description": "Организация командной работы с помощью Git: GitFlow, feature-ветки, pull requests, code review, практики написания понятных коммитов.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-35-ci-cd",
+    "title": "CI/CD для фронтенда",
+    "shortDescription": "Автосборка и автодеплой",
+    "description": "Настройка базового CI/CD для фронтенда: запуск тестов, линтеров и сборки при каждом пуше, автоматический деплой на hosting (Vercel, Netlify, GitHub Pages и др.).",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-36-env-config",
+    "title": "Конфигурация окружений",
+    "shortDescription": "env-переменные, конфиги для dev/prod",
+    "description": "Использование переменных окружения, разделение конфигураций для различных окружений (development, staging, production), безопасная работа с ключами.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-37-architecture",
+    "title": "Архитектура фронтенд-приложений",
+    "shortDescription": "Модули, слои, структуры папок",
+    "description": "Организация структуры проекта, разделение на слои (UI, бизнес-логика, данные), паттерны архитектуры, устойчивость к росту и изменениям требований.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-38-ux-basics",
+    "title": "Основы UX/UI",
+    "shortDescription": "Паттерны интерфейсов, микроанимации",
+    "description": "Базовые принципы UX: предсказуемость, простота, обратная связь пользователю. Использование анимаций и переходов для улучшения восприятия, а не ради анимаций.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-39-project-setup",
+    "title": "Подготовка продакшн-проекта",
+    "shortDescription": "Настройка линтеров, форматтеров, хуков",
+    "description": "Настройка ESLint, Prettier, Husky, проверок перед коммитом. Единый кодстайл и автоматические проверки, чтобы держать кодовую базу в порядке.",
+    "status": "not_started",
+    "notes": ""
+  },
+  {
+    "id": "topic-40-final-project",
+    "title": "Финальный проект",
+    "shortDescription": "Полноценное приложение на React",
+    "description": "Создание финального pet-проекта: продуманный роадмап, дизайн, архитектура, интеграция с API, авторизация, деплой и базовая аналитика. Подготовка проекта к демонстрации работодателю.",
+    "status": "not_started",
+    "notes": ""
+  }
+]
