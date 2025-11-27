@@ -42,7 +42,6 @@ function RoadmapLayout() {
   const { index } = useParams();
   const location = useLocation();
   const fileInputRef = useRef(null);
-  const overviewContainerRef = useRef(null);
 
   const activeIndex =
     typeof index !== "undefined" ? Number(index) || 0 : currentIndex;
@@ -54,7 +53,7 @@ function RoadmapLayout() {
       goNext();
       navigate(`/topic/${activeIndex + 1}`);
     }
-  };
+  };  
 
   const handlePrev = () => {
     if (activeIndex > 0) {
@@ -71,15 +70,15 @@ function RoadmapLayout() {
     toggleOverview();
   };
 
-const handleFileSelectClick = () => {
-  alert(
-    "Пример JSON файла для импорта:\n\n" +
-      EXAMPLE_JSON +
-      "\n\nСкопируйте это в .json файл, измените под себя и загрузите."
-  );
+  const handleFileSelectClick = () => {
+    alert(
+      "Пример JSON файла для импорта:\n\n" +
+        EXAMPLE_JSON +
+        "\n\nСкопируйте это в .json файл, измените под себя и загрузите."
+    );
 
-  if (fileInputRef.current) fileInputRef.current.click();
-};
+    if (fileInputRef.current) fileInputRef.current.click();
+  };
 
   const handleFileChange = (e) => {
     const file = e.target.files?.[0];
@@ -152,7 +151,7 @@ const handleFileSelectClick = () => {
             )}
 
           {overviewMode && !isDetailsPage && (
-            <div className="overview-container" ref={overviewContainerRef}>
+            <div className="overview-container">
                 <div className="overview-line" />
                 <div className="overview-cards">
                 {topics.map((topic, idx) => (

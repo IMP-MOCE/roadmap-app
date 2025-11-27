@@ -109,12 +109,6 @@ export function RoadmapProvider({ children }) {
     return STATUS_ORDER[nextIdx];
   }
 
-  const setTopicStatus = (id, status) => {
-    setTopics((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, status } : t))
-    );
-  };
-
   const toggleTopicStatus = (id) => {
     setTopics((prev) =>
       prev.map((t) =>
@@ -135,7 +129,6 @@ export function RoadmapProvider({ children }) {
     );
   };
   
-
   const goNext = () => {
     setOverviewMode(false);
     setCurrentIndex((prev) => {
@@ -195,7 +188,6 @@ export function RoadmapProvider({ children }) {
     total,
     doneCount,
     progressPercent,
-    setTopicStatus,
     toggleTopicStatus,
     setTopicNotes,
     setTopicTargetDate,
@@ -217,7 +209,7 @@ export function RoadmapProvider({ children }) {
 export function useRoadmap() {
   const ctx = useContext(RoadmapContext);
   if (!ctx) {
-    throw new Error("useRoadmap must be used within RoadmapProvider");
+    throw new Error("useRoadmap within RoadmapProvider");
   }
   return ctx;
 }
